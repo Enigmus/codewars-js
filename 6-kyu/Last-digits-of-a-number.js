@@ -2,7 +2,7 @@ function lastDigit(n, d) {
     if (d <= 0) 
         return [];
 
-    return n.toString().slice(-d).split('').map(el => Number(el));
+    return n.toString().slice(-d).split('').map(Number);
 }
 
 console.log(lastDigit(123767, -4));
