@@ -7,4 +7,4 @@ function isolateIt(arr) {
     });
 }
 
-console.log(isolateIt(["abcd", "efgh", "56789"]));
+console.log(isolateIt(["abcd", "efgh", "56789"])); //
