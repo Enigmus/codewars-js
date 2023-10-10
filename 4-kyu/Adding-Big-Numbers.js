@@ -4,27 +4,27 @@ function add(a, b) {
     return (BigInt(a) + BigInt(b)).toString(); // Fix me!
 }*/
 
-function add(a, b) {
-    let sum = [];
-    let z = "0";
-    let lenA = a.length;
-    let lenB = b.length;
-    let bigLen = lenA > lenB ? lenA : lenB;
-    a = a.padStart(bigLen, "0").split("");
-    b = b.padStart(bigLen, "0").split("");
 
-    for (let i = bigLen - 1; i >= 0; i--) {
-        let x = Number(a[i]) + Number(b[i]) + Number(z);
-        if (x < 10) {
-            sum.unshift(x);
-            z = 0;
-        } else {
-            z = 1;
-            sum.unshift(x % 10);
+/*Возможно это кривое решения. НО что то другое в голову не пришло */
+function add(a, b) {
+    let sum = [];   //массив, сюда будем записывать сумму цифр
+    let z = 0;  //так сказать флаг. 0 или 1 ====> 'ноль пишу один в уме' так вот это и есть "в уме"
+    const bigLen = a.length> b.length ? a.length : b.length; //выясняем какая строка длинне, записываем результат в переменную
+    a = a.padStart(bigLen, "0").split("");  //дополняем каждую строку нулями в начале строки до заданной длины, которую мы узнали на предыдущем шаге. 
+    b = b.padStart(bigLen, "0").split("");  //после преобразуем строки в массивы подстрок посимвольно
+
+    for (let i = bigLen - 1; i >= 0; i--) { //цикл перебирает элементы массива с конца
+        let x = Number(a[i]) + Number(b[i]) + Number(z); //вычисляем суммы двух элементов массива + флаг
+        if (x < 10) {   //если сумма меньше 10
+            sum.unshift(x); //довавляем полученную суммы в начало массива
+            z = 0;  //0 в уме
+        } else {    //если сумма больше 10
+            z = 1;  // 1 в уме
+            sum.unshift(x % 10); // в массив уже добавлем остаток от деления, т.е второе число от суммы
         }
     }
-    if(z) sum.unshift(z)
-    return sum.join("");
+    if(z) sum.unshift(z);   //проверяем, может у нас в уме 1 остался, если так, дописываем в начало массива
+    return sum.join("");    //возвращаем сумму, предварительно объединив массив значений в строки
 }
 add("109", "1");
 
