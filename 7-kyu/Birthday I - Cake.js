@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {Number} x 
+ * @param {Array} y 
+ * @returns 
+ */
 function cake(x, y) {
     let debris = 0;
     for (let i = 0; i < y.length; i += 1) {
