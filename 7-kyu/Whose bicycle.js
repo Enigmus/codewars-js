@@ -11,11 +11,18 @@ function whoseBicycle(diary1, diary2, diary3) {
     const d2 = generalAssessment(diary2);
     const d3 = generalAssessment(diary3);
 
-    if(d1 > d2 && d1 > d3) return 'I need to buy a bicycle for my first son.'
+    if (d1 > d2 && d1 > d3) return "I need to buy a bicycle for my first son.";
 
-    if(d2 > d3 && d2 > d1) return 'I need to buy a bicycle for my second son.'
-    
-    if(d3 > d1 && d3 > d2) return 'I need to buy a bicycle for my third son.'
+    if (d2 > d3 && d2 > d1) return "I need to buy a bicycle for my second son.";
+
+    if (d3 > d1 && d3 > d2) return "I need to buy a bicycle for my third son.";
+
+    if (d1 === d2 && d1 === d3)
+        return "I need to buy a bicycle for my third son.";
+    if (d1 === d2) return "I need to buy a bicycle for my second son.";
+
+    if (d2 === d3) return "I need to buy a bicycle for my third son.";
+    if (d1 === d3) return "I need to buy a bicycle for my third son.";
 
     return 0;
 }
