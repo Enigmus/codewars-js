@@ -1,9 +1,5 @@
-function moveZeros(arr) {
-  let a = arr.filter((el) => el !== 0);
-  let zero = arr.filter((el) => el === 0);
-
-  return a.concat(zero);
-}
+const moveZeros = (arr) =>
+  arr.filter((el) => el !== 0).concat(arr.filter((el) => el === 0));
 
 console.log(
   moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]),
